@@ -1,0 +1,42 @@
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Delivered to client
+          deployment: production
+          script:
+            - mkdir -p ~/.ssh
+            - (umask 077; echo $SSH_KEY | base64 --decode > ~/.ssh/id_rsa)
+    accept:
+      - step:
+          name: Build and push to accept environment
+          deployment: staging
+          script:
+            - mkdir -p ~/.ssh
+            - (umask 077; echo $SSH_KEY | base64 --decode > ~/.ssh/id_rsa)
+            - ssh -i ~/.ssh/id_rsa -o BatchMode=yes -o StrictHostKeyChecking=no $ACCEPT_USER@$HOSTNAME "~/deploy.sh -o ${BITBUCKET_REPO_OWNER} -s ${BITBUCKET_REPO_SLUG} -p ${DATABASE_PREFIX}"
+    test:
+      - step:
+          name: Build and push to test environment
+          deployment: test
+          script:
+            - mkdir -p ~/.ssh
+            - (umask 077; echo $SSH_KEY | base64 --decode > ~/.ssh/id_rsa)
+            - ssh -i ~/.ssh/id_rsa -o BatchMode=yes -o StrictHostKeyChecking=no $TEST_USER@$HOSTNAME "~/deploy.sh -o ${BITBUCKET_REPO_OWNER} -s ${BITBUCKET_REPO_SLUG} -p ${DATABASE_PREFIX}"
+  custom:
+    deploy-to-accept-server:
+      - step:
+          name: Build and push to accept environment
+          deployment: staging
+          script:
+            - mkdir -p ~/.ssh
+            - (umask 077; echo $SSH_KEY | base64 --decode > ~/.ssh/id_rsa)
+            - ssh -i ~/.ssh/id_rsa -o BatchMode=yes -o StrictHostKeyChecking=no $ACCEPT_USER@$HOSTNAME "~/deploy.sh -o ${BITBUCKET_REPO_OWNER} -s ${BITBUCKET_REPO_SLUG} -p ${DATABASE_PREFIX}"
+    deploy-to-test-server:
+      - step:
+          name: Build and push to test environment
+          deployment: test
+          script:
+            - mkdir -p ~/.ssh
+            - (umask 077; echo $SSH_KEY | base64 --decode > ~/.ssh/id_rsa)
+            - ssh -i ~/.ssh/id_rsa -o BatchMode=yes -o StrictHostKeyChecking=no $TEST_USER@$HOSTNAME "~/deploy.sh -o ${BITBUCKET_REPO_OWNER} -s ${BITBUCKET_REPO_SLUG} -p ${DATABASE_PREFIX}"

@@ -1,0 +1,801 @@
+/* Table of Content
+==================================================
+	#Font-Face
+	#Site Styles
+	#Media Queries */
+
+/* #Font-Face
+================================================== */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i');
+/* #Site Styles
+================================================== */
+
+/* ### general ### */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { font-family: 'Roboto', sans-serif; font-size: 12px; color: #000; }
+body { background: #fff; }
+input, select, textarea { font-family: 'Roboto', sans-serif; font-size: 12px; color: #000; }
+img { border: 0; display: block; }
+ul, li { list-style: none; }
+:focus , .form-control:focus, .button:focus{ outline: none; box-shadow: none; }
+
+/* ### global classes ### */
+.clear { clear: both; visibility: hidden; line-height: 0; height: 0; }
+.center { margin: 0 auto; position: relative; max-width: 1350px; }
+.centered { padding-right: calc((100% - 1590px) / 2); padding-left: calc((100% - 1590px) / 2); }
+
+/* ### wrapper ### */
+#wrapper { position: relative; display: block; width: 100%; min-height: 100%; }
+
+/* ### main container ### */
+#mainCntr { width: 100%; overflow: hidden; }
+
+/* ### header container ### */
+#headerCntr { padding-top: 30px; padding-bottom: 30px; overflow: hidden; position: relative; width: 100%; background: #000; }
+#headerCntr.centered { padding-right: calc((100% - 1788px) / 2); padding-left: calc((100% - 1788px) / 2); }
+#headerCntr .logo { float: left; }
+#headerCntr .logo img { max-width: 100%; }
+#headerCntr .mobileMenu { display: none; cursor: pointer; z-index: 15; float: right; width: 40px; height: 40px; position: relative; transition: 0.2s; overflow: hidden; }
+#headerCntr .mobileMenu span { display: block; height: 4px; text-indent: -9999px;  background: #fff; position: absolute; top: 50%; right: 20%; left: 20%; transition: 0.2s; }
+#headerCntr .mobileMenu span:before,
+#headerCntr .mobileMenu span:after { display: block; width: 100%; height: 4px; content: '';  background-color: #fff; transition-duration: 0.2s,0.2s; position: absolute; left: 0; }
+#headerCntr .mobileMenu span:before { top: -7px; }
+#headerCntr .mobileMenu span:after { bottom: -7px; }
+.mm-opened #headerCntr .mobileMenu span { background: none; }
+.mm-opened #headerCntr .mobileMenu.is-active span:before,
+.mm-opened #headerCntr .mobileMenu.is-active span:after { transition-delay: 0s, 0.2s; }
+.mm-opened #headerCntr .mobileMenu span:before { top: 0; -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+.mm-opened #headerCntr .mobileMenu span:after { bottom: 0; -webkit-transform: rotate(-45deg); transform: rotate(-45deg); }
+#headerCntr.bgWhite .mobileMenu span { background: #000; }
+#headerCntr.bgWhite .mobileMenu span:before,
+#headerCntr.bgWhite .mobileMenu span:after { background: #000; }
+#headerCntr.bgGray .mobileMenu span { background: #000; }
+#headerCntr.bgGray .mobileMenu span:before,
+#headerCntr.bgGray .mobileMenu span:after { background: #000; }
+
+
+	/* ### menu box ### */
+	.menuBox:not(.mm-menu) { float: right; }
+	.menuBox:not(.mm-menu) ul { padding-top: 32px; margin-right: -55px; }
+	.menuBox:not(.mm-menu) ul li { padding-right: 55px; float: left; }
+	.menuBox:not(.mm-menu) ul li a { padding-bottom: 5px; font-size: 20px; color: #bdbdbd; text-decoration: none; border-bottom: 5px solid transparent; }
+	.menuBox:not(.mm-menu) ul li a:hover, .menuBox:not(.mm-menu) ul li.is-active a { color: #fff; border-bottom: 5px solid #fc453d; }
+
+#headerCntr.bgWhite { background: #fff; }
+#headerCntr.bgWhite .menuBox:not(.mm-menu) ul li a { color: #808080; border: none; }
+#headerCntr.bgWhite .menuBox:not(.mm-menu) ul li a:hover, .bgWhite .menuBox:not(.mm-menu) ul li.is-active a { color: #040404; border: none; }
+.mm-opened #headerCntr.bgWhite .mobileMenu span { background: none; }
+#headerCntr.bgGray { background: #f9f9f9; }
+#headerCntr.bgGray .menuBox:not(.mm-menu) ul li a { color: #9b9b9b; border: none; }
+#headerCntr.bgGray .menuBox:not(.mm-menu) ul li a:hover, .bgGray .menuBox:not(.mm-menu) ul li.is-active a { color: #000000; border: none; }
+.mm-opened #headerCntr.bgGray .mobileMenu span { background: none; }
+
+/* ### banner box ### */
+.bannerBox { width: 100%; height: 939px; background-size: cover; position: relative; overflow: hidden; background-position: center top; }
+.bannerBox .center { max-width: 1466px; margin: 0px auto; height: 100%; }
+.bannerBox .blog {  width: 100%; height: 100%; position: relative; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.81) 77%,rgba(0,0,0,0.81) 79%,rgba(0,0,0,0.81) 100%);}
+.bannerBox .blog .block { position: absolute; right: 50px; bottom: 60px; width: 795px; z-index: 1; }
+.bannerBox .blog .title { padding: 0px; font-size: 35px; color: #fff; font-weight: 800; }
+.bannerBox .blog time { display: block; padding: 32px 0px; font-size: 17px; font-weight: 700; color: #fff; }
+.bannerBox .blog p { padding-bottom: 32px; font-size: 17px; color: #fff; line-height: 31px; }
+.bannerBox .blog .button { padding: 11px 23px; font-size: 20px; color: #000; display: inline-block; background: #fff; border-radius: 40px; }
+.bannerBox .eventBanner { position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; }
+.bannerBox .eventBanner .center { max-width: 1374px; height: 100%; }
+.bannerBox .eventBanner .event {  background: #fff; position: absolute; left: 0px; bottom: 0px; padding: 100px 140px 80px 175px;  border-top-left-radius: 15px;  border-top-right-radius: 15px; }
+.bannerBox .eventBanner .title { min-height: 200px; padding-bottom: 20px; font-size: 60px; color: #000; font-weight: 800; text-align: center;  }
+.bannerBox .eventBanner p { font-size: 18px; color: #6c6c6c; line-height: 40px; }
+.bannerBox .newsletterBox { padding-top: 150px; width: 650px; background: none; }
+.bannerBox .newsletterBox h3 { padding-bottom: 53px; font-size: 75px; color: #000; font-weight: 700;}
+.bannerBox .newsletterBox form { max-width: 535px; }
+.bannerBox .newsletterBox input[type="text"] { height: 62px; padding: 18px 22px; width: calc(100% - 214px); }
+.bannerBox .newsletterBox .button { height: 62px; padding: 18px 22px; width: 214px; }
+.bannerBox .downArrow { position: absolute; left: 50%; bottom: 20px; font-size: 60px; color: #000; }
+.bannerBox .downArrow:before {content: "\f103"; font-family: 'FontAwesome';  }
+.bannerBox .downArrow:hover { text-decoration: none; }
+
+/* ### content container ### */
+#contentCntr { width: 100%; }
+#contentCntr.home .centered { padding-right: calc((100% - 1675px) / 2); padding-left: calc((100% - 1675px) / 2); }
+
+	/* ### content box ### */
+	.contentBox { padding-top: 244px; width: 100%; overflow: hidden; }
+	.contentBox.content { padding-top: 120px; padding-bottom: 80px; border-bottom: 2px solid #e9e7e7; }
+	.contentBox .row { padding-bottom: 65px; }
+	.contentBox .left { padding-right: 130px; }
+	.contentBox h1 { margin: 0px; padding-bottom: 105px; font-size: 60px; color: #000; font-weight: 800;  }
+	.contentBox p { padding-bottom: 32px; font-size: 18px; color: #808080; line-height: 40px; font-weight: 300; }
+	.contentBox figure { padding-bottom: 50px; }
+	.contentBox img { width: 100%; box-shadow: 6px 6px 25px 0px rgba(50, 50, 50, 0.04); }
+	.contentBox .button { padding: 12px 34px; margin-top: 30px; display: inline-block; font-size: 20px; color: #fff; text-decoration: none;  background: #fc453d; }
+	.contentBox .button:hover { text-decoration: none; }
+	.contentBox.content h1 { font-size:50px; padding-bottom: 60px; }
+
+	/* ### timeline box ### */
+	.timelineBox { padding-top: 150px; padding-bottom: 154px; width: 100%; overflow: hidden; }
+	.timelineBox h2 { padding-bottom: 92px; font-size: 60px; color: #000; font-weight: 800; text-align: center;  }
+	.timelineBox ul { margin: 0px 32px 103px 32px; list-style: none; width: calc(100% - 64px); float: left; position: relative; }
+	.timelineBox ul:before { content:''; position: absolute; left: 0px; top: 50%; display: block; width: 100%; height: 1px; background: #000; }
+	.timelineBox li { width: 14.2%; float: left; position: relative; }
+	.timelineBox li a { display: block; width: 60px; height: 60px; position: relative; }
+	.timelineBox li a:before { content:''; width: 60px; height: 60px; display: block; position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%); border: 1px solid #000; border-radius: 100%; transition: all 0.5s; background: #fff url(../img/timeline-icon1.png) center center no-repeat; }
+	.timelineBox li a:hover:before, .timelineBox li a.is-active:before { width: 90px; height: 90px; }
+	.timelineBox li:nth-child(2) a:before {background: #fff url(../img/timeline-icon2.png) center center no-repeat; }
+	.timelineBox li:nth-child(3) a:before {background: #fff url(../img/timeline-icon3.png) center center no-repeat; }
+	.timelineBox li:nth-child(4) a:before {background: #fff url(../img/timeline-icon4.png) center center no-repeat; }
+	.timelineBox li:nth-child(5) a:before {background: #fff url(../img/timeline-icon5.png) center center no-repeat; }
+	.timelineBox li:nth-child(6) a:before {background: #fff url(../img/timeline-icon6.png) center center no-repeat; }
+	.timelineBox li:nth-child(7) a:before {background: #fff url(../img/timeline-icon7.png) center center no-repeat; background-size: 57%; }
+	.timelineBox li a.last { position: absolute; right: -64px; top: 0px; }
+	.timelineBox li a.last:before {background: #fff url(../img/timeline-icon8.png) center center no-repeat; }
+	.timelineBox .block { position: relative; padding: 47px 124px; max-width: 1130px; margin: 0px 200px 0 0; float: right; border: 1px solid #707070; border-radius: 20px;  }
+	.timelineBox li a.is-active:after { position: absolute; right: 28px; bottom: -101px; width: 1px; height: 87px; content:''; background:#707070; }
+	.timelineBox .block .left { width: 220px; float: left; }
+	.timelineBox .block .right { padding-left: 154px; width:calc(100% - 220px); float: left; }
+	.timelineBox .block p { margin: 0px; font-size: 18px; color: #808080; line-height: 36px; font-weight: 300; }
+	.timelineBox .block strong { padding-bottom: 25px; border-bottom: 1px solid #fc453d; font-size: 50px; color: #000; line-height: 50px; font-weight: 800; display: block; }
+	.timelineBox .block span { padding-top: 25px; display: block; font-size: 20px; color: #727272; font-weight: 700; }
+
+	/* ### subscribe box ### */
+	.subscribeBox { padding-bottom: 145px; max-width: 628px; margin: 0px auto; }
+	.subscribeBox strong { font-size: 20px; color: #b1b1b1; display: block; text-align: center; letter-spacing: 1px; }
+	.subscribeBox h3 { margin: 0px; padding: 17px 0 52px 0px; font-size: 60px; color: #000; font-weight: 800; text-align: center; letter-spacing: 1px; }
+	.subscribeBox input[type="text"] { width:calc(100% - 185px); font-size: 20px; color: #b1b1b1; float: left; height: 50px; border: none; border-bottom: 1px solid #707070; }
+	.subscribeBox .button { margin-left: 5px; float:left; width: 180px; height: 50px; font-size: 17px; color: #fff; cursor: pointer; background: #fc453d; border: none; border-top: 1px solid #feaeab; border-bottom: 1px solid #fec5c3; }
+	/* ### podcast box ### */
+	.podcastBox { width: 100%; overflow: hidden; border-bottom: 2px solid #edecec; }
+	.podcastBox .left { padding-right: 140px; }
+	.podcastBox .right { padding-left: 72px; border-left: 2px solid #edecec; }
+	.podcastBox .block { position: relative;}
+	.podcastBox .block:before { position: absolute; right: -140px; bottom: 0px; display: block; content:''; width: 5000px; height: 2px; background: #edecec;}
+	.podcastBox h3 { margin: 0px; padding: 55px 0px 50px 0; font-size: 35px; color: #000; font-weight: 800; }
+	.podcastBox figure { position: relative; }
+	.podcastBox img { width: 100%; }
+	.podcastBox .play { font-size: 50px; color: #fff; display: block; position: absolute; left: 50%; top: 50%; -webkit-transform:translate(-50%,-50%); transform:translate(-50%,-50%); width: 84px; height: 84px; line-height: 84px; text-align: center; background: #919191; border-radius: 100%; }
+	.podcastBox .play:before {  font-family: 'FontAwesome'; content: "\f04b"; }
+	.podcastBox p { padding: 50px 0 80px 0; font-size: 19px; color: #808080; line-height: 40px; font-weight: 300; }
+	.podcastBox ul.player { padding-top: 145px; list-style: none; }
+	.podcastBox ul.player li { padding-bottom: 42px; }
+
+	/* ### social box ### */
+	.socialBox { padding-bottom: 120px; width: 100%; }
+	.socialBox h4 { margin: 0px; padding: 55px 0px 140px 0; font-size: 50px; color: #000; font-weight: 800; text-align: center; }
+	.socialBox ul { list-style: none; margin-right: -140px; }
+	.socialBox li { padding-bottom: 70px; padding-right: 140px; display: block; position: relative; }
+	.socialBox li p { position: relative; font-size: 19px; color: #808080; line-height: 40px; font-weight: 300; text-align: center; }
+	.socialBox li p:before { width: 128px; height: 128px; border-radius: 100%; text-align: center; font-size: 74px; color: #fff; line-height: 128px; font-family: 'FontAwesome'; content: "\f0e1"; display: block; margin: 0px auto 30px auto; background: #000; }
+	.socialBox li .cloud:before { content: '\f0c2'; }
+	.socialBox li .spotify:before { content: '\f1bc'; }
+	.socialBox li .youtube:before { content: '\f167'; }
+	.socialBox li .music:before { content: '\f001'; }
+	.socialBox li .twitter:before { content: '\f099'; }
+	.socialBox li .facebook:before { content: '\f09a'; }
+	.socialBox li .snapchat:before { content: '\f2ac'; }
+
+	/* ### agenda box ### */
+	.agendaBox { padding-bottom: 220px; width: 100%; overflow: hidden; }
+	.agendaBox .left { padding-top: 162px; padding-right: 90px; }
+	.agendaBox .right { padding-top: 162px; padding-left: 70px; border-left: 1px solid #dbd8d8; }
+	.agendaBox .block { margin-bottom: 63px; }
+	.agendaBox h4 { padding-bottom: 90px; font-size: 55px; color: #000; font-weight: 800;  }
+	.agendaBox h3 { font-size: 55px; color: #000; font-weight: 800;  }
+	.agendaBox .time {font-size: 42px; color: #000; font-weight: 800; text-transform: uppercase; }
+	.agendaBox .title { padding-bottom: 20px; font-size: 33px; color: #000; display: block; font-weight: 700; }
+	.agendaBox .button { padding: 9px 34px; display: inline-block; font-size: 18px; color: #fff; text-decoration: none;  background: #fc453d;  }
+	.agendaBox .calender { margin-top: 5px; width: 37px; height: 42px; display: inline-block; float: right; background: url(../img/calendar.png) left top no-repeat; }
+	.agendaBox .button:hover { text-decoration: none; }
+	.agendaBox .contactBox { padding-bottom: 0px; }
+	.agendaBox .contactBox p { padding-top: 10px; padding-bottom: 40px; }
+	.agendaBox .block:last-child { margin-bottom: 0px; }
+
+	/* ### newsletter box ### */
+	.newsletterBox { padding-top: 35px; padding-bottom: 35px; width: 100%; background: #000; }
+	.newsletterBox .block { max-width: 520px; margin: 0px auto; position: relative; }
+	.newsletterBox h2 { margin: 0px; padding-bottom: 20px; font-size: 29px; color: #fff; font-weight: 700; text-align: center; position: relative; }
+	.newsletterBox p { margin: 0px; padding-top: 10px; font-size: 13px; color: #7b7b7b; font-weight: 300; }
+	.newsletterBox .arrow:before { position: absolute; left: -266px; top: 1px; content: ''; width: 207px; height: 72px; display: inline-block; background: url(../img/arrow.png) left top no-repeat; }
+	.newsletterBox input[type="text"] { padding: 25px 40px; height: 78px; font-size: 18px; color: #8a8a8a; width:calc(100% - 180px); float: left; background: #525252; border: none;  }
+	.newsletterBox .button { padding: 25px; width: 180px; height: 78px; float: left; font-size: 18px; color: #fff; cursor: pointer; background: #fc453d; border: none; }
+	.newsletterBox input[type="text"]::-webkit-input-placeholder { color: #8a8a8a; }
+	.newsletterBox input[type="text"]::-moz-placeholder { color: #8a8a8a; opacity: 1; }
+	.newsletterBox input[type="text"]:-ms-input-placeholder { color: #8a8a8a; }
+	.newsletterBox input[type="text"]::-ms-input-placeholder { color: #8a8a8a; }
+	.newsletterBox input[type="text"]::placeholder { color: #8a8a8a; }
+
+	/* ### podcast container ### */
+	#podcastCntr { padding-top: 99px; width: 100%; }
+	#podcastCntr .centered { padding-right: calc((100% - 1350px) / 2); padding-left: calc((100% - 1350px) / 2); }
+
+		/* ### about box ### */
+		.aboutBox { padding-top: 180px; padding-bottom: 200px; width: 100%; overflow: hidden; }
+		.aboutBox .right { padding-left: 122px; }
+		.aboutBox h1 { padding-bottom: 60px; font-size: 38px; color: #000; font-weight: 800; }
+		.aboutBox p { padding-bottom: 32px; font-size: 19px; color: #808080; line-height: 40px; font-weight: 300; }
+		.aboutBox p strong { font-weight: 700; color: #000; }
+		.aboutBox ul { list-style: none; }
+		.aboutBox li { padding-bottom: 21px; display: block; }
+		.aboutBox li a { padding: 23px 0 23px 94px; display: block; position: relative; font-size: 20px; color: #000; text-decoration: none; }
+		.aboutBox li a:before { position: absolute; left: 0px; top: 0px; font-family: 'FontAwesome'; content: '\f001'; font-size: 43px; color: #fff; width: 75px; height: 75px; text-align: center; line-height: 75px; display: block; background: #000000; border-radius: 10px; }
+		.aboutBox li.cloud a:before { content: '\f0c2'; }
+		.aboutBox li.spotify a:before { content: '\f1bc'; }
+		.aboutBox li.youtube a:before { content: '\f167'; }
+		.aboutBox li a:hover { text-decoration: none; }
+
+		/* ### podcast list box ### */
+		.podcastListBox { padding-top: 180px; width: 100%; overflow: hidden; }
+		.podcastListBox h3 { padding-bottom: 56px; margin: 0px; font-size: 50px; color: #000; font-weight: 800; }
+		.podcastListBox .block { padding-top: 48px; padding-bottom: 82px; width: 100%; border-top: 2px solid #808080; }
+		.podcastListBox .title { padding-bottom: 45px; display: block; margin: 0px; font-size: 38px; color: #000; font-weight: 800; text-transform: uppercase; }
+		.podcastListBox .right { padding-left: 104px; }
+		.podcastListBox h4 { min-height: 130px; font-size: 45px; color: #000; font-weight: 800; }
+		.podcastListBox p { padding: 20px 0px; min-height: 153px; font-size: 19px; color: #808080; line-height: 40px; font-weight: 300; }
+		.podcastListBox .button { padding: 10px 34px; display: inline-block; font-size: 20px; color: #fff; text-decoration: none;  background: #fc453d; }
+		.podcastListBox .button:hover { text-decoration: underline; }
+		.podcastListBox img { width: 100%; }
+
+		/* ### pagination box ### */
+		.paginationBox { padding-top: 60px; padding-bottom: 180px; width: 100%; overflow: hidden; }
+		.paginationBox ul { list-stylext-de: none; margin-right: -40px; }
+		.paginationBox li { padding-right: 40px; display: inline-block; }
+		.paginationBox li a { padding: 0 7px; font-size: 21px; color: #000; text-decoration: none; display: inline-block; line-height: 35px; border-bottom: 4px solid transparent; }
+		.paginationBox li a:hover, .paginationBox li.is-active a { border-bottom: 4px solid #fc453d; }
+		.paginationBox li.previous a:before { font-size: 35px; font-family: 'FontAwesome'; content: "\f104"; }
+		.paginationBox li.next a:before { font-size: 35px; font-family: 'FontAwesome'; content: "\f105"; }
+
+	/* ### blog container ### */
+	#blogCntr { width: 100%; }
+	#blogCntr .centered { padding-right: calc((100% - 1350px) / 2); padding-left: calc((100% - 1350px) / 2); }
+
+		/* ### blog box ### */
+		.blogBox { padding-top: 200px; padding-bottom: 228px; width: 100%; }
+		.blogBox .row { margin-bottom: 270px; }
+		.blogBox .row:last-child { margin-bottom: 0px; }
+		.blogBox strong { font-size: 18px; color: #b1b1b1; display: block; font-weight:500; }
+		.blogBox h3 { margin: 0px; padding: 20px 0px; font-size: 50px; color: #000; font-weight: 700; border-bottom: 1px solid #808080; }
+		.blogBox h3 a { color: #000; text-decoration: none; }
+		.blogBox h3 a:hover { color: #fc453d; }
+		.blogBox time { display: block; padding: 32px 0px 40px 0; font-size: 17px; font-weight: 700; color: #727272; }
+		.blogBox p { padding-bottom: 32px; min-height: 200px; font-size: 17px; color: #808080; line-height: 35px; font-weight: 300;  }
+		.blogBox .button {padding: 7px 23px; font-size: 18px; color: #fff; height: 40px; display: inline-block; background: #000000; transition: all 0.5s; border-radius: 40px; }
+		.blogBox .button:hover { text-decoration: none; }
+		.blogBox figure { padding-top: 50px; }
+		.blogBox img { width: 100%; box-shadow:  7px 7px 51px 0px rgba(50, 50, 50, 0.25); }
+		.blogBox .right { padding-left: 112px; }
+
+		/* ### blog detail box ### */
+		.blogDetailBox { width: 100%; }
+		.blogDetailBox .holder { position: relative; z-index: 1; background: #fff; padding-bottom: 190px; overflow: hidden; margin-top: -538px; border-top-left-radius: 15px;  border-top-right-radius: 15px; }
+		.blogDetailBox .block { padding-top: 178px; max-width: 720px; margin: 0px auto; position: relative; }
+		.blogDetailBox h2 { margin: 0px; font-size: 50px; color: #000; font-weight: 700; }
+		.blogDetailBox time { padding: 30px 0; display: block;  font-size: 17px; font-weight: 700; color: #727272; }
+		.blogDetailBox p { padding-bottom: 32px; font-size: 17px; color: #808080; line-height: 35px; font-weight: 300; }
+		.blogDetailBox strong { color: #000; font-weight: 700; }
+		.blogDetailBox figure { padding-top: 60px; }
+		.blogDetailBox img { width: 100%; box-shadow:  7px 7px 51px 0px rgba(50, 50, 50, 0.14); }
+		.blogDetailBox .social { width: 178px; margin-right: -15px; position: absolute; right: 0px; top: 30px; }
+		.blogDetailBox .social li { padding-right: 15px; font-size: 20px; color: #000; line-height: 28px; float: left; font-weight: 700; }
+		.blogDetailBox .social li a { width: 28px; height: 28px; display: block; background: #a7a7a7; font-size: 20px; color: #fff; text-align: center; line-height: 28px; border-radius: 4px; }
+		.blogDetailBox .social li a:before {font-family: 'FontAwesome'; content: "\f099";}
+		.blogDetailBox .social li.facebook a:before { font-family: 'FontAwesome'; content: "\f09a"; }
+		.blogDetailBox .social li a:hover {}
+		.blogDetailBox .paging { padding: 300px 0px 211px 0; overflow: hidden; }
+		.blogDetailBox .paging a { padding: 0 40px; display: inline-block; font-size: 26px; color: #000; text-decoration: none; font-weight: 700; position: relative; }
+		.blogDetailBox .paging a.next:after { position: absolute; right: 0px; top: -5px; font-size: 48px; line-height: 48px; font-family: 'FontAwesome'; content: "\f105"; }
+		.blogDetailBox .paging a.previous:before {position: absolute; left: 0px; top: -5px; font-size: 48px; line-height: 48px; font-family: 'FontAwesome'; content: "\f104"; }
+		.blogDetailBox .next { float: right; }
+		.blogDetailBox .prevous { float: left; }
+		.blogDetailBox .paging a:hover { text-decoration: none; }
+
+	/* ### event container ### */
+	#eventCntr { padding-top: 235px; width: 100%; }
+	#eventCntr .centered { padding-right: calc((100% - 1330px) / 2); padding-left: calc((100% - 1330px) / 2); }
+
+		/* ### event box ### */
+		.eventBox { padding-top: 72px; padding-bottom: 180px; width: 100%; overflow: hidden; }
+		.eventBox h2 { padding-bottom: 71px; font-size: 50px; color: #000; font-weight: 700; border-bottom: 2px solid #808080; }
+		.eventBox .block { padding-top: 50px; padding-bottom: 40px; border-bottom: 2px solid #808080; }
+		.eventBox .time {font-size: 42px; color: #000; font-weight: 800; text-transform: uppercase; }
+		.eventBox .title { padding-bottom: 20px; font-size: 33px; color: #000; display: block; font-weight: 700; }
+		.eventBox p { font-size: 17px; color: #808080; line-height: 35px; font-weight: 300; }
+		.eventBox .button { padding: 12px 34px; display: inline-block; font-size: 20px; color: #fff; text-decoration: none;  background: #fc453d;  }
+		.eventBox .calender { width: 37px; height: 42px; display: inline-block; float: right; background: url(../img/calendar.png) left top no-repeat; }
+		.eventBox .button:hover { text-decoration: none; }
+		.eventBox .right { padding: 30px 40px 0 40px; }
+		.eventBox .block.last { border-bottom: none; }
+
+	/* ### contact box ### */
+	.contactBox { padding-bottom: 60px; width: 100%; }
+	.contactBox.center { max-width: 1130px; }
+	.contactBox h1 { padding-top: 104px; font-size: 55px; color: #000; font-weight: 800; text-align: center; }
+	.contactBox p { padding-bottom: 50px; font-size: 17px; color: #808080; line-height: 35px; font-weight: 300; text-align: center; }
+	.contactBox .form-group { margin-bottom: 40px; }
+	.contactBox input[type="text"] { padding: 30px 30px 24px 30px; width: 100%; height: 79px; font-size: 22px; color: #fff; border-radius:0px; border: none; background: #000; }
+	.contactBox .select { position: relative; width: 100%; height: 79px; display: block; border-radius: 0px;}
+	.contactBox .select select {  width: 100%; padding: 24px 30px 24px 30px; height: 79px; border-radius: 0px;font-size: 20px; color: #fff; margin: 0; border:none; outline:none; display: inline-block; cursor:pointer; background: #000;-webkit-appearance:none;-moz-appearance:none;	}
+	.contactBox .select:after { font-size: 50px; color: #fff; font-family: 'FontAwesome'; content: "\f107"; position: absolute; top: 0; right: 28px; pointer-events: none; }
+	.contactBox .textarea { resize: none; padding: 30px 30px 24px 30px; width: 100%; height: 360px; font-size: 22px; color: #fff; border-radius:0px; border: none; background: #000;}
+	.contactBox .button { padding: 27px 65px; border-radius: 80px; display: inline-block; font-size: 19px; color: #fff; background: #fc453d; border: none;text-decoration: none; }
+	.contactBox .button:hover { transform: scale(.97);background-color: #FF0B00;box-shadow: 0px 8px 30px 0px rgba(0,0,0,0.15)}
+    .contactBox .button:active { transform: scale(.82);background-color: #ff0b00; box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.15)}  &:focus {outline:0;}
+	.contactBox .contactForm { max-width: 850px; margin: 0px auto; }
+	.contactBox input[type="text"]::-webkit-input-placeholder, .contactBox .textarea::-webkit-input-placeholder { opacity: 1;  color: #fff; }
+	.contactBox input[type="text"]::-moz-placeholder, .contactBox .textarea::-moz-placeholder { opacity: 1;  color: #fff; }
+	.contactBox input[type="text"]:-ms-input-placeholder, .contactBox .textarea:-ms-input-placeholder { opacity: 1;  color: #fff; }
+	.contactBox input[type="text"]::-ms-input-placeholder, .contactBox .textarea::-ms-input-placeholder { opacity: 1;  color: #fff; }
+	.contactBox input[type="text"]::placeholder, .contactBox .textarea::placeholder { opacity: 1;  color: #fff; }
+	.contactBox input[type="text"]::-webkit-input-placeholder, .contactBox .textarea::-webkit-input-placeholder { color: #fff; }
+	.contactBox input[type="text"]::-moz-placeholder, .contactBox .textarea::-moz-placeholder {  color: #fff;  opacity : 1; }
+	.contactBox input[type="text"]:-ms-input-placeholder, .contactBox .textarea:-ms-input-placeholder { color: #fff; }
+	.contactBox select::-ms-expand{display:none;}
+
+	/* ### map box ### */
+	.mapBox { margin-bottom: 113px; width: 100%; overflow: hidden; background: #ededed; }
+	.mapBox #map { position: relative; overflow: hidden; height: 721px; display: block; }
+	.mapBox p { position: absolute; left: 50%; top: 50%; font-size: 45px; color: #727272; line-height: 50px; font-weight: 300; -webkit-transform:translate(-50%, -50%); transform:translate(-50%, -50%); }
+
+	/* ### info box ### */
+	.infoBox { width: 100%; height: 635px; position: relative; background: #ededed; box-shadow: inset 11px 12px 21px 0px rgba(50, 50, 50, 0.12);}
+	.infoBox p { font-family: 'Merriweather', serif; text-align: center; font-size: 25px; color: #a1a1a1; line-height: 32px; position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%); }
+	.infoBox strong { color: #000; }
+
+	/* ### text box ### */
+	#contentCntr.thinking{ overflow: hidden; background: #e4e4e4; }
+	.textBox { width: 100%; overflow: hidden;  }
+	.textBox .centered { padding-right: 0px; padding-left: 0px; }
+	.textBox .row { margin-left:15px;margin-right:15px ; margin-bottom: 50px; position: relative; background: #fefefe; }
+	.textBox .image {margin: 0px; width: 55%; height: 100%; overflow: hidden; position:absolute; left: 0px; top: 0px; }
+	.textBox .image img {position: absolute;  left: 0; transform: ; min-width: 100%; width: auto !important; min-height: 100%; height: auto !important;}
+	.textBox .image.img-right { right: 0px; left: inherit; width: 40%; }
+	.textBox .image.img-right-speaker { right: 0px; left: inherit; width: 44%; }
+	.textBox .right { width: 45%; float: right; padding-left: 102px; }
+	.textBox .left { width: 50%; float: left; }
+	.textBox .contentRight { padding: 150px 20px 150px 120px; width: 600px; }
+	.textBox .contentLeft { padding: 70px 20px 200px 250px; width: 850px; }
+	.textBox .subtitle {  font-size: 24px; font-weight: 700; color: #adadad; position: relative; }
+	.textBox .subtitle span { display: inline-block; padding-right: 10px; position: relative; z-index: 1; background: #fff; }
+	.textBox .subtitle:after { background:red; height: 2px; padding-right: 150px; width: 100%; display: block; position: absolute; left: 0px; top: 50%; content:''; }
+	.textBox h3 { padding: 24px 0px 57px 0px; font-size: 51px; color: #000; font-weight: 700; }
+	.textBox p { padding: 0px 0px 100px 0px; font-size: 17px; color: #000; line-height: 31px; font-weight: 300; }
+    .textBox .button {color: white; font-family: 'Roboto', Roboto;transform: scale(1); background-color: #E00A00; border: 0; text-decoration:none;border-radius: 100rem; letter-spacing:0.15rem;padding: 1.8rem 4rem; font-size: 1.2rem; cursor: pointer; font-weight: 300; box-shadow: 0px 16px 35px 0px rgba(0,0,0,0.15);  transition: box-shadow 150ms linear, background-color 150ms linear, transform 150ms linear;}
+	.textBox .button:hover { transform: scale(.9);background-color: #FF0B00;box-shadow: 0px 8px 30px 0px rgba(0,0,0,0.15)}
+    .textBox .button:active { transform: scale(.82);background-color: #ff0b00; box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.15)}  &:focus {outline:0;}
+
+
+	.textBox img { width: 100%; }
+	.textBox .shadow { box-shadow: -1px 35px 41px -20px rgba(50, 50, 50, 0.24) }
+	#contentCntr.speakerBg{ overflow: hidden; background: #ededed; }
+	.textBox.gray .row { height:auto; margin-bottom: 80px; background: #f9f9f9; box-shadow: 9px 12px 21px 0px rgba(50, 50, 50, 0.42);margin-right:0px;margin-left:0px; }
+	.textBox.gray  .subtitle span { background: #f9f9f9; }
+
+	/* ### happen box ### */
+	.happenBox { padding-top: 56px; padding-bottom: 83px; margin-bottom: 50px; text-align: center; width: 100%; overflow:hidden; background: #000000; }
+	.happenBox strong { display: block; padding-bottom: 45px; font-size: 30px; color: #fff; font-weight: 700; }
+	.happenBox .button { padding: 27px 65px; border-radius: 80px; display: inline-block; font-size: 19px; color: #fff; background: #fc453d; border: none;text-decoration: none; }
+	.happenBox .button {color: white; font-family: 'Roboto', Roboto;transform: scale(1); background-color: #E00A00; border: 0; text-decoration:none;border-radius: 100rem; letter-spacing:0.15rem;padding: 1.8rem 4rem; font-size: 1.2rem; cursor: pointer; font-weight: 300; box-shadow: 0px 16px 35px 0px rgba(0,0,0,0.15);  transition: box-shadow 150ms linear, background-color 150ms linear, transform 150ms linear;}
+	.happenBox .button:hover { transform: scale(.97);background-color: #FF0B00;box-shadow: 0px 8px 30px 0px rgba(0,0,0,0.15)}
+    .happenBox .button:active { transform: scale(.82);background-color: #ff0b00; box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.15)}  &:focus {outline:0;}
+	.happenBox.speaker { margin-bottom: 140px;}
+
+/* ### footer container ### */
+#footerCntr { width: 100%; background: #000000; position: relative; }
+#footerCntr:before { position: absolute; left: -80px; bottom: -1px; width: 440px; height: 300px; content: ''; background: url(../img/footer-logo.png) left top no-repeat; }
+#footerCntr .centered { padding-right: calc((100% - 1788px) / 2); padding-left: calc((100% - 1788px) / 2); }
+
+	/* ### footer box ### */
+	.footerBox { width: 100%; overflow: hidden; position: relative; z-index: 1; border-bottom: 2px solid #a2a2a2; }
+	.footerBox .left { width: 44%; float: left; padding-top: 43px; padding-bottom: 34px;  }
+	.footerBox .logo { float: left; }
+	.footerBox address { float: left; padding-left: 50px; font-size: 18px; color: #9f9f9f; font-style: normal; font-weight: 300; }
+	.footerBox address strong { display: block; font-size: 32px; font-weight: 700; color: #fff; }
+	.footerBox address a { color: #9f9f9f; text-decoration: none; }
+	.footerBox ul.social { margin-right: -32px; }
+	.footerBox ul.social li { float: left; padding-right: 32px; }
+	.footerBox ul.social li a { width: 28px; height: 28px; text-align: center; line-height: 28px; display: block; border-radius: 3px; background: #ffffff; color: #000; text-decoration: none; font-size: 16px;  }
+	.footerBox ul.social li a:before { font-family: 'FontAwesome'; content: "\f099"; }
+	.footerBox ul.social li.linkdin a:before { content: "\f0e1"; }
+	.footerBox ul.social li.facebook a:before { content: "\f09a"; }
+	.footerBox ul.social a:hover { color: #fff; background: #fc453d; }
+	.footerBox .right { padding: 43px 0 30px 111px; width: 56%; float: left; border-left: 2px solid #a2a2a2; }
+	.footerBox .right .column { width: 270px; float: left; }
+	.footerBox ul.links { list-style: none; }
+	.footerBox ul.links li { float: left; width: 50%; line-height: 40px; }
+	.footerBox ul.links li a { font-size: 18px; color: #9f9f9f; text-decoration: none; font-weight: 300; }
+	.footerBox ul.links li a:hover { color: #fff; }
+	.footerBox .newsletter { padding-right: 105px; width:calc(100% - 270px); float: left; }
+	.footerBox input[type="text"] { padding: 25px 29px; height: 78px; font-size: 18px; color: #848484; width:calc(100% - 180px); float: left; background: #525252; border: none;  }
+	.footerBox .button { padding: 25px; width: 180px; height: 78px; float: left; font-size: 18px; color: #fff; cursor: pointer; background: #fc453d; border: none; }
+	.footerBox input[type="text"]::-webkit-input-placeholder { color: #848484; }
+	.footerBox input[type="text"]::-moz-placeholder { color: #848484; opacity: 1; }
+	.footerBox input[type="text"]:-ms-input-placeholder { color: #848484; }
+	.footerBox input[type="text"]::-ms-input-placeholder { color: #848484; }
+	.footerBox input[type="text"]::placeholder { color: #848484; }
+	.scrollTop { font-size: 18px; color: #9f9f9f; text-decoration: none; font-weight: 300; position: absolute; right: 35px; bottom: 195px; z-index: 2; }
+	.scrollTop:before {font-family: 'FontAwesome'; content: "\f102"; display: block; margin: 0px auto; text-align: center; font-size: 30px; line-height: 30px; }
+	.scrollTop:hover { color: #fc453d; text-decoration: none; }
+
+	/* ### copyright box ### */
+	.copyrightBox { padding-top: 15px; padding-bottom: 50px; width: 100%; }
+	.copyrightBox p { margin: 0px; font-size: 13px; color: #9f9f9f; font-weight: 300; }
+	.copyrightBox p a {color: #9f9f9f; text-decoration: none; }
+	.copyrightBox p a:hover { text-decoration: none; }
+
+/* #Media Queries
+================================================== */
+@media only screen and (max-width: 1879px) {
+	.textBox .centered { padding-left: 0px; padding-right: 40px; }
+	.textBox .contentRight { padding-top: 140px; padding-bottom: 140px; }
+	.textBox .contentLeft { padding: 100px 20px 100px 150px;}
+	.bannerBox .newsletterBox { padding-left: 20px; }
+	#headerCntr.bgWhite { padding-left: 20px; padding-right: 20px; }
+	#contentCntr.home .centered { padding-left: 20px; padding-right: 20px;  }
+	#headerCntr.centered { padding-left: 20px; padding-right: 20px; }
+	#footerCntr .centered { padding-left: 20px; padding-right: 20px; }
+	#blogCntr .centered { padding-left: 20px; padding-right: 20px; }
+}
+
+@media only screen and (max-width: 1589px) {
+	.center { padding-left: 20px!important; padding-right: 20px!important; }
+	.centered { padding-left: 20px!important; padding-right: 20px!important; }
+	.bannerBox .eventBanner .center { padding-left: 20px; padding-right: 20px; }
+	#eventCntr .centered { padding-left: 20px; padding-right: 20px; }
+	#podcastCntr .centered { padding-left: 20px; padding-right: 20px; }
+	.socialBox ul { margin-right: -15px; }
+	.socialBox li { padding-right: 15px; }
+	.newsletterBox .block { max-width: 570px; }
+	.agendaBox .time { font-size: 34px; }
+	.agendaBox .calender { position: absolute; right: -35px; }
+	.agendaBox .title { font-size: 30px; }
+	.footerBox address { padding-left: 25px; }
+	.footerBox .right { padding-left: 20px; }
+	.footerBox .newsletter { padding-right: 0px; }
+	.bannerBox { height: 700px; }
+	.contentBox.content { padding-top: 60px; padding-bottom: 0px; }
+	.podcastBox h3 { padding: 30px 0px; }
+	.podcastBox .left { padding-right: 30px; }
+	.podcastBox .right { padding-left: 30px; }
+	.podcastBox .block::before { right: -70px; }
+	.socialBox h4 { padding: 35px 0px 70px 0px; }
+	.socialBox { padding-bottom: 0px; }
+	.agendaBox .left { padding-top: 50px; }
+	.agendaBox .right { padding-top: 50px; padding-left: 40px; }
+	.agendaBox { padding-bottom: 100px; }
+	.subscribeBox { padding-bottom: 90px; }
+	.timelineBox ul { margin-left: 4px; }
+	.contentBox { padding-top: 100px; }
+	.timelineBox { padding-top: 0px; padding-bottom: 50px; }
+	.footerBox .right .column { width: 220px; }
+	.footerBox .newsletter { width:calc(100% - 220px); }
+	.footerBox input[type="text"] { padding: 27px 15px; font-size: 16px; }
+	.blogDetailBox .block { padding-top: 100px; }
+	.blogDetailBox .holder { margin-top: -350px; padding-bottom: 100px; }
+	.blogDetailBox .paging { padding: 100px 0; }
+	.blogBox { padding-top: 100px; padding-bottom: 100px; }
+	.blogBox .row { margin-bottom: 100px; }
+	.paginationBox { padding-bottom: 100px; }
+	.bannerBox .eventBanner .event { left: 20px; right: 20px; }
+	#eventCntr { padding-top: 100px; }
+	.eventBox { padding-bottom: 80px; }
+	.bannerBox .eventBanner .title { min-height: 100px; }
+	.aboutBox { padding-top: 80px; padding-bottom: 80px; }
+	.podcastListBox { padding-top: 80px; }
+	.timelineBox .block { padding: 35px 50px; margin-right: 14%; }
+	.contentBox .button { margin: 0px; }
+	.scrollTop { bottom: 103px; }
+	.bannerBox .newsletterBox { padding-top: 100px; }
+	.bannerBox .newsletterBox { font-size: 65px; }
+	.infoBox { height: 400px; }
+	.textBox .contentRight { width: 100%; padding: 80px 20px 80px 0px; }
+	.textBox .contentLeft { width: 100%; padding: 60px 20px 60px 10px; }
+	.textBox .right { padding-left: 30px; padding-right: 30px; }
+
+}
+
+@media only screen and (max-width: 1349px) {
+	.socialBox li p br { display: none; }
+	.bannerBox { height: 550px; }
+	.contentBox.content h1 { padding-bottom: 30px; }
+	.contentBox .left { padding-right: 70px; }
+	.contentBox p { font-size: 16px; line-height: 32px; }
+	.podcastBox p { font-size: 16px; line-height: 32px; padding: 30px 0 50px 0; }
+
+	.socialBox li p { font-size: 16px; line-height: 32px; }
+	.agendaBox .time { font-size: 27px; }
+	.agendaBox .title { font-size: 26px; }
+	.agendaBox .button { padding: 9px 20px; }
+	.footerBox .logo { width: 100px; height: 100px; }
+	.footerBox .logo img { width: 100%; }
+	.footerBox address { padding-left: 16px; }
+	.footerBox .button { width: 150px; }
+	.footerBox input[type="text"] { width: calc(100% - 150px); }
+	.contentBox { padding-top: 50px; }
+	.contentBox h1 { padding-bottom: 50px; }
+	.blogDetailBox .holder { margin-top: -300px; }
+	.blogDetailBox p { font-size: 16px; line-height: 34px; }
+	.blogBox { padding-top: 50px; padding-bottom: 50px; }
+	.blogBox .row { margin-bottom: 100px; }
+	.paginationBox { padding-bottom: 100px; }
+	.blogBox .right { padding-left: 50px; }
+	.blogBox p { min-height: 150px; }
+	.bannerBox .eventBanner .event { padding: 75px; }
+	#eventCntr { padding-top: 0px; }
+	.eventBox .block { padding-top: 40px; padding-bottom: 30px; }
+	.eventBox { padding-top: 50px; padding-bottom: 50px; }
+	.aboutBox { padding-top: 50px; padding-bottom: 50px; }
+	.aboutBox p { font-size: 16px; line-height: 34px; }
+	.podcastListBox .right { padding-left: 50px; }
+	.podcastListBox h4 { min-height: inherit; }
+	.timelineBox .block { margin-right: 15px; }
+	.bannerBox .newsletterBox h3 { font-size: 50px; padding-bottom: 20px; }
+	.infoBox { height: 300px; }
+	.infoBox p { font-size: 20px; }
+	.textBox h3 { padding: 10px 0 20px 0; font-size: 40px; }
+	.textBox p { font-size: 15px; padding-bottom: 20px; }
+}
+
+@media only screen and (max-width: 1199px) {
+	#headerCntr { padding-top: 15px; padding-bottom: 15px; }
+	.menuBox:not(.mm-menu) ul { margin-right: -25px; }
+	.menuBox:not(.mm-menu) ul li { padding-right: 25px; }
+	.menuBox:not(.mm-menu) ul li a { font-size: 18px; }
+	.contentBox.content { padding-top: 30px; }
+	.contentBox.content h1 { font-size: 40px; }
+	.contentBox .left { padding-right: 15px; }
+	.contentBox p { padding-bottom: 20px; }
+	.podcastBox ul.player { padding-top: 105px; }
+	.podcastBox p { padding-bottom: 30px; }
+	.socialBox h4 { font-size: 40px; }
+	.agendaBox .time { font-size: 21px; }
+	.agendaBox .title { font-size: 21px; }
+	.agendaBox .button{ white-space:nowrap; }
+	.agendaBox .calender { top: 0px; right: -57px; }
+	.agendaBox h3 { font-size: 45px; }
+	.agendaBox h4 { font-size: 45px; }
+	.agendaBox .contactBox p{ font-size: 15px; line-height: 24px; }
+	.contactBox .form-group { margin-bottom: 40px; }
+	.contactBox input[type="text"] { padding: 20px 20px 20px 20px; height: 70px; font-size: 18px; }
+	.contactBox .select select {padding: 20px 20px 20px 20px; height: 70px; font-size: 18px; }
+	.contactBox .select::after { font-size: 44px; right: 17px; }
+	.contactBox .textarea { font-size: 18px; padding: 20px; }
+	.agendaBox .block:last-child { margin-bottom: 0px; }
+	.footerBox .right .column { width: 100%; }
+	.footerBox .newsletter { width: 100%; padding-top: 20px; }
+	.agendaBox .right { padding-left: 22px; }
+	.blogBox h3 { font-size: 40px; }
+	.blogBox time { padding: 20px 0; }
+	.blogBox p { font-size: 16px; line-height: 30px; }
+	.blogBox .row { margin-bottom: 70px; }
+	.mapBox { margin-bottom: 50px; }
+	.bannerBox .eventBanner .event { padding: 50px 20px 10px 20px; }
+	.bannerBox .eventBanner .title { min-height: inherit; font-size: 50px; }
+	.aboutBox h1 { padding-bottom: 30px; }
+	.aboutBox .right { padding-left: 50px; }
+	.aboutBox { padding-bottom: 0px; }
+	.podcastListBox h3 { padding-bottom: 30px; }
+	.podcastListBox .right { padding-left: 30px; }
+	.podcastListBox p { min-height: inherit; }
+	.podcastListBox .block { padding-top: 40px; padding-bottom: 40px; }
+	.podcastListBox .title { padding-bottom: 30px; }
+	.timelineBox .block .right { padding-left: 45px; }
+	.timelineBox .block p { font-size: 16px; line-height: 33px; }
+	.contentBox .row { padding-bottom: 20px; }
+	.scrollTop { bottom: 230px; }
+	.contactBox .button { margin: 0px; }
+	.infoBox { height: 220px; }
+	.infoBox p { font-size: 16px; line-height: 28px; }
+}
+
+@media only screen and (max-width: 979px) {
+	.bannerBox { height: 400px; }
+	#headerCntr .logo { width: 200px; }
+	.menuBox:not(.mm-menu) ul { padding-top: 18px; margin-right: -20px; }
+	.menuBox:not(.mm-menu) ul li { padding-right: 20px; }
+	.menuBox:not(.mm-menu) ul li a { font-size: 16px; }
+	.newsletterBox .arrow:before { display: none; }
+	.contentBox p { font-size: 15px; line-height: 30px; }
+	.podcastBox .left { padding-right: 20px; }
+	.podcastBox .right { padding-left: 20px; }
+	.podcastBox p { font-size: 15px; line-height: 30px; }
+	.podcastBox h3 {font-size: 30px; padding: 16px 0px;}
+	.podcastBox .block::before { right: -30px; }
+	.podcastBox ul.player { padding-top: 69px; }
+	.socialBox li { padding-bottom: 30px; }
+	.socialBox li p { font-size: 14px; line-height: 30px; }
+	.agendaBox .left { max-width: 100%; -webkit-flex: none; -ms-flex: none; flex: none; }
+	.agendaBox .right { max-width: 100%; -webkit-flex: none; -ms-flex: none; flex: none; border: none; }
+	.agendaBox .title { padding-bottom: 0px; }
+	.agendaBox h4 { padding-bottom: 30px; }
+	.agendaBox .time { font-size: 25px; }
+	.agendaBox .title { font-size: 23px; }
+	.agendaBox .contactBox p { padding-bottom: 10px; }
+	.subscribeBox h3 { font-size: 50px; }
+	.footerBox input[type="text"] { font-size: 16px; padding: 27px 14px; }
+	.subscribeBox { padding-bottom: 50px; }
+	.agendaBox { padding-bottom: 50px; }
+	.contactBox .textarea { height: 220px; }
+	.contentBox h1 { font-size: 40px; padding-bottom: 20px; }
+	.contentBox .row { padding-bottom: 20px; }
+	.blogDetailBox .block { padding: 40px; }
+	.bannerBox .blog .block {width: 100%; padding: 20px; right: 0px; bottom: 20px; }
+	.bannerBox .blog .title { font-size: 25px; }
+	.bannerBox .blog time { font-size: 16px; padding: 15px 0px; }
+	.bannerBox .blog p { font-size: 16px; padding-bottom: 20px; }
+	.blogBox [class*="col-sm"] {  max-width: 100%; -webkit-flex: none; -ms-flex: none; flex: none; }
+	.blogBox .right { padding-left: 15px; padding-top: 20px; }
+	.blogBox p { min-height: inherit; }
+	.blogBox .row { margin-bottom: 20px; }
+	.contactBox h1 { font-size: 40px; padding-top: 50px; }
+	.contactBox p { padding-bottom: 20px; }
+	.contactBox .form-group { margin-bottom: 20px; }
+	.bannerBox.banner { height: auto; }
+	.bannerBox .eventBanner { margin-top: 166px; position: static; }
+	.bannerBox .eventBanner .event { position: static; }
+	.bannerBox .eventBanner p { font-size: 16px; line-height: 34px; }
+	.eventBox h2 { padding-bottom: 30px; }
+	.eventBox p { font-size: 16px; line-height: 31px; }
+	.eventBox .right { padding: 30px 14px 0 14px; }
+	.eventBox .title { padding-bottom: 10px; }
+	.eventBox .block { padding-top: 30px; padding-bottom: 30px; }
+	.aboutBox { padding-top: 30px; }
+	.aboutBox .right { padding-left: 15px; }
+	.aboutBox p { font-size: 15px; line-height: 31px; }
+	.aboutBox li a { font-size: 16px; padding: 18px 0 18px 74px; }
+	.aboutBox li a::before { font-size: 35px; height: 60px; line-height: 60px; width: 60px; }
+	.podcastListBox p { padding: 10px 0px; font-size: 16px; line-height: 31px; }
+	.podcastListBox h4 { font-size: 35px; }
+	.podcastListBox .block { padding-top: 25px; padding-bottom: 25px; }
+	.podcastListBox .right { padding-left: 15px; }
+	.podcastListBox .title { padding-bottom: 15px; }
+	.podcastListBox h3 { font-size: 40px; }
+	#podcastCntr { padding-top: 50px; }
+	.timelineBox .block { margin-right: 0px; }
+	.bannerBox .newsletterBox { padding-top: 50px; }
+	.bannerBox .downArrow { font-size: 40px; bottom: 0px; }
+	.infoBox p { width: 500px; }
+	.textBox .right { padding: 0px; width:100%;  }
+	.textBox .left { padding:0px; width:100%;  }
+	.textBox .contentRight { padding: 40px 0px; }
+	.textBox .image { width:100%; height: auto; position: static; }
+	.textBox .image img { position: static; transform: none; width:100%!important; min-height: inherit; }
+	.textBox .image.img-right { width: 100%;}
+	.textBox .image.img-right-speaker { width: 70%; margin: 0px  auto;}
+	.happenBox.speaker { margin-bottom: 80px; }
+}
+
+@media only screen and (max-width: 767px) {
+	.bannerBox .blog .block { padding-left: 0; padding-right: 0; }
+	.menuBox:not(.mm-menu) { display: none; }
+	#headerCntr .mobileMenu { display: block; }
+	.bannerBox { height: 250px; }
+	.newsletterBox h2 { font-size: 22px; }
+	.newsletterBox input[type="text"] { padding: 25px 20px; width:calc(100% - 150px); }
+	.newsletterBox .button { width: 150px; }
+	.contentBox p { padding-bottom: 10px; }
+	.contentBox .left { padding-bottom: 20px; }
+	.contentBox figure { padding-bottom: 20px; }
+	.contentBox.content .row { padding-bottom: 0px; }
+	.podcastBox .left { padding-right: 15px; }
+	.podcastBox .right { padding-left: 15px; border: none; }
+	.podcastBox ul.player { padding-top: 25px; }
+	.podcastBox ul.player li { padding-bottom: 20px; }
+	.socialBox h4 { font-size: 32px; }
+	.socialBox li { width: 50%; }
+	.socialBox li p::before { width: 100px; height: 100px; line-height: 100px; font-size: 55px; }
+	.agendaBox .left { padding-right: 15px; }
+	.agendaBox .calender { position: static; }
+	.agendaBox .block { margin-bottom: 0px; padding-top: 15px; padding-bottom: 15px; border-bottom: 1px solid #ccc; }
+	.contactBox .form-group { margin-bottom: 0px; }
+	.contactBox .form-group [class*="col-sm"] { margin-bottom: 20px; }
+	.subscribeBox h3 { font-size: 40px; }
+	.subscribeBox { padding-left: 20px; padding-right: 20px; padding-bottom: 30px; }
+	.footerBox .left { width: 100%; }
+	.footerBox .right { padding-top: 18px; padding-left: 0px; width: 100%; border: none; border-top: 1px solid #4f4f4f; }
+	.contentBox .row { padding-bottom: 0px; }
+	.timelineBox li { width: 100%; padding-bottom: 50px; }
+	.timelineBox li a.last { right: inherit; top: inherit; left: 0px; bottom: -50px; }
+	.timelineBox ul::before { width: 1px; height: 100%; top: 7px; left: 28px; }
+	.timelineBox h2 { font-size: 50px; padding-bottom: 40px; }
+	.blogDetailBox p { font-size: 14px; line-height: 30px; }
+	.blogDetailBox time { padding: 15px 0px; font-size: 14px; }
+	.blogDetailBox .social { top: 9px; }
+	.blogDetailBox p { padding-bottom: 0px; }
+	.blogDetailBox .block { padding: 40px 20px; }
+	.blogDetailBox .holder { margin-top: -100px; padding-bottom: 50px; }
+	.blogDetailBox h2 { font-size: 40px; }
+	.blogDetailBox .paging { padding: 50px 0; }
+	.blogDetailBox .paging a { padding: 0px 22px; font-size: 17px; }
+	.blogDetailBox .paging a.previous:before { font-size: 36px; line-height: 36px; }
+	.blogDetailBox .paging a.next:after { font-size: 36px; line-height: 36px; }
+	.bannerBox.blogBanner { height: auto; }
+	.bannerBox .blog .block { position: static; }
+	.blogBox figure { padding-top: 30px; }
+	.blogBox { padding-top: 30px; padding-bottom: 30px; }
+	.mapBox p { position: static; -webkit-transform: none; transform: none; padding: 20px; }
+	.mapBox a P{ height: 500px; }
+	.paginationBox ul {	margin-right: -15px;}
+	.paginationBox li { padding-right: 15px; }
+	.bannerBox .eventBanner .title { font-size: 45px; }
+	.eventBox .right { padding-top: 0px; }
+	.eventBox .block{ padding-top: 10px; padding-bottom: 20px; }
+	.eventBox { padding-top: 12px; }
+	.eventBox .time { font-size: 38px; }
+	.bannerBox .eventBanner { margin-top: 100px; }
+	.bannerBox .eventBanner .center { padding-left: 10px; padding-right: 10px; }
+	.copyrightBox { padding-bottom: 15px; }
+	.aboutBox p { line-height: 28px; padding-bottom: 15px; }
+	.podcastListBox .right { padding-top: 15px; }
+	.paginationBox { padding-bottom: 50px; }
+	.podcastListBox .block { -webkit-flex:none; -ms-flex:none; flex:none; width: auto; }
+	#podcastCntr { padding-top: 30px; }
+	.aboutBox h1 { padding-bottom: 20px; }
+	.timelineBox ul { margin: 0px; width: 80px; }
+	.timelineBox .block { width:calc(100% - 90px); padding: 35px 20px; }
+	.timelineBox .block .left { width: 100%; }
+	.timelineBox .block .right { width: 100%; padding-left: 0px; }
+	.timelineBox li a.is-active::after { display: none; }
+	.timelineBox .block strong { font-size: 40px; padding-bottom: 12px; }
+	.timelineBox .block p { font-size: 15px; line-height: 28px; }
+	.footerBox .col-sm-12.d-flex { display: block!important; }
+	.bannerBox .newsletterBox { display: none; }
+	.infoBox { padding: 20px; height: 150px; }
+	.infoBox p { width: 100%; font-size: 15px; }
+	.textBox p { font-size: 13px; line-height: 24px; }
+	.textBox .subtitle { font-size: 17px; }
+	.textBox h3 { font-size: 28px; padding-bottom: 10px; }
+	.happenBox { padding-top: 30px; padding-bottom: 44px; }
+	.happenBox strong { padding-bottom: 30px; }
+	.happenBox .button { padding: 17px 65px; }
+	.contactBox .button { padding: 16px 50px; }
+	.textBox.gray .row { margin-bottom: 50px; }
+	.happenBox.speaker { margin-bottom: 50px; }
+}
+
+@media only screen and (max-width: 479px) {
+	.bannerBox { height: 230px; }
+	.newsletterBox h2 { font-size: 18px; }
+	.newsletterBox input[type="text"] { padding: 16px; width: 100%; height: 60px; }
+	.newsletterBox .button { padding: 16px; width: 100%; margin-top: 15px; float: none; height: 60px; }
+	.contentBox p { line-height: 26px; }
+	.podcastBox p { padding: 15px 0px; }
+	.socialBox h4 { font-size: 23px; }
+	.socialBox li { width: 100%; }
+	.socialBox li p { font-size: 16px; }
+	.agendaBox h3 { font-size: 34px; }
+	.podcastBox .play { font-size: 28px; width: 60px; height: 60px; line-height: 60px; }
+	.contactBox .textarea { height: 150px; }
+	.subscribeBox h3 { font-size: 32px; }
+	.subscribeBox strong { font-size: 17px; }
+	.subscribeBox input[type="text"] { width: 100%; }
+	.subscribeBox .button { width: 100%; margin-top: 10px; }
+	.blogDetailBox .block { padding: 20px 10px; }
+	#blogCntr .centered { padding-left: 10px; padding-right: 10px; }
+	.blogDetailBox .social { position: static; width: 100%; float: left; }
+	.blogDetailBox p { line-height: 26px; }
+	.blogDetailBox .paging a { font-size: 14px; padding: 5px 22px; }
+	.bannerBox .blog p { font-size: 14px; line-height: 25px; }
+	.contactBox h1 { font-size: 26px; }
+	.contactBox p { font-size: 16px; line-height: 26px; }
+	.mapBox a { height: 400px; }
+	.mapBox p { font-size: 29px; line-height: 40px; }
+	.paginationBox ul {	margin-right: -10px;}
+	.paginationBox li { padding-right:  10px;}
+	.paginationBox li a { font-size:  18px; }
+	.bannerBox .eventBanner { margin-top: 70px; }
+	.bannerBox .eventBanner .event { padding: 50px 10px 10px 10px }
+	.bannerBox .eventBanner p { font-size: 15px; line-height: 30px; }
+	.eventBox p { font-size: 15px; line-height: 28px; }
+	.eventBox .title { font-size: 28px; }
+	.eventBox .time { font-size: 32px; }
+	.footerBox input[type="text"] { width: 100%; padding: 16px; height: 60px; }
+	.footerBox .button { width: 100%; margin-top: 10px; padding: 16px; height: 60px; }
+	.podcastListBox p { font-size: 15px; line-height: 28px; }
+	.podcastListBox h4 { font-size: 28px; }
+	.podcastListBox .title { font-size: 30px; }
+	.aboutBox h1 { font-size: 32px; }
+	.timelineBox .block { width: 100%; margin-top: 80px; }
+	.infoBox p { position: static; -webkit-transform: none; transform: none; font-size: 13px; line-height: 24px; }
+	.infoBox { height: auto; }
+	.textBox .contentRight { padding: 30px 0; }
+	.textBox .contentLeft { padding: 30px 0px; }
+	.textBox .image.img-right-speaker { width: 100%; }
+	.happenBox strong { font-size: 22px; }
+}
